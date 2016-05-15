@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 import flask
 import json
+import os
 import requests
 
 app = Flask(__name__)
@@ -42,11 +43,11 @@ def show_index():
 
 
 
-
-
 if __name__ == '__main__':
+    ip = os.environ.get('OPENSHIFT_PYTHON_IP', '0.0.0.0')
+    port = int(os.environ.get('OPENSHIFT_PYTHON_PORT', 8080))
     cached_github_files = request_github_api()
     if cached_github_files is None:
         print("WARNING: no cached github files :(")
-    app.run(threaded=True, port=8080, host='0.0.0.0')
+    app.run(threaded=True, port=port, host=ip)
 
