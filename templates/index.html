@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href="//fonts.googleapis.com/css?family=Roboto:400,100,100italic,400italic" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="/static/index.css" />
+		<title>Forge Informatics Notes</title>
+	</head>
+	<body>
+		<div id="ihatecss">
+			<table id="files_table">
+				<tr>
+					<th>Name</th>
+					<th>Size</th>
+				</tr>
+				{% for file in files %}
+				<tr>
+					<td><a href="{{ file['link'] }}" title="{{ file['name'] }}">{{ file['name'] }}</a></td>
+					<td>{{ file['size'] }}</td>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</body>
+</html>

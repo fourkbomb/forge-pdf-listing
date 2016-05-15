@@ -1,0 +1,27 @@
+body {
+	background-color: black;
+	color: white;
+	font-family: 'Roboto', 'Segoe UI', sans-serif;
+}
+
+a {
+	color: white;
+}
+
+#ihatecss {
+	position: absolute;
+	min-width: 200px;
+	left: 50%;
+}
+
+table {
+	position: relative;
+	width: 100%;
+	min-width: 500px;
+	left: -50%;
+	text-align: center;
+}
+
+td {
+	font-size: 30px;
+}
