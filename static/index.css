@@ -8,6 +8,13 @@ a {
 	color: white;
 }
 
+#footer {
+	position: absolute;
+	bottom: 10px;
+	text-align: center;
+	width: 100%;
+}
+
 #ihatecss {
 	position: absolute;
 	min-width: 200px;
