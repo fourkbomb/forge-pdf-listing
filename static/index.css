@@ -17,14 +17,22 @@ a {
 
 #ihatecss {
 	position: absolute;
-	min-width: 200px;
+	min-width: 500px;
 	left: 50%;
+}
+
+.size {
+	font-size: 15px;
+}
+
+.links {
+	white-space: nowrap;
 }
 
 table {
 	position: relative;
 	width: 100%;
-	min-width: 500px;
+	min-width: 700px;
 	left: -50%;
 	text-align: center;
 }

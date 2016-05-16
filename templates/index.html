@@ -10,12 +10,16 @@
 			<table id="files_table">
 				<tr>
 					<th>Name</th>
-					<th>Size</th>
+					<th>Links</th>
 				</tr>
 				{% for file in files %}
 				<tr>
-					<td><a href="{{ file['link'] }}" title="{{ file['name'] }}">{{ file['name'] }}</a></td>
-					<td>{{ file['size'] }}</td>
+					<td>{{ file['pretty'] }}</td>
+					<td class="links">
+						<a href="{{ file['pdflink'] }}" title="PDF version of {{ file['pretty'] }}">PDF</a> <span class="size">({{ file['sizePDF'] }})</span>
+						&bull;
+						<a href="{{ file['texlink'] }}" title="Raw TeX source of {{ file['pretty'] }}">LaTeX</a> <span class="size">({{ file['sizeTex'] }})</span>
+					</td>
 				</tr>
 				{% endfor %}
 			</table>
