@@ -3,12 +3,15 @@ import flask
 import json
 import os
 import requests
+import time
 
 app = Flask(__name__)
 
 cached_github_files = []
 
 github_data = {}
+
+last_req_time = int(time.time())
 
 def request_github_api():
     r = requests.get('https://raw.githubusercontent.com/AiryShift/ForgeInformaticsNotes/master/info.json')
@@ -58,7 +61,19 @@ def make_size_pretty(byte):
 def show_index():
     return render_template('index.html', files=cached_github_files)
 
-
+@app.route('/reload')
+def reload():
+    global cached_github_files, last_req_time
+    if int(time.time()) - last_req_time < 1800: # wait at least 30 minutes
+        return "Please wait until %d to update cache"%(last_req_time + 1800)
+    backup = cached_github_files
+    cached_github_files = request_github_api()
+    if cached_github_files is None:
+        cached_github_files = backup
+        return "Failed"
+    else:
+        last_req_time = int(time.time())
+        return "Success"
 
 if __name__ == '__main__':
     ip = os.environ.get('OPENSHIFT_PYTHON_IP', '0.0.0.0')
