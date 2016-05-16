@@ -4,8 +4,29 @@ body {
 	font-family: 'Roboto', 'Segoe UI', sans-serif;
 }
 
+h2 {
+	text-align: center;
+	font-weight: 100;
+	font-size: 60px;
+	padding: 0px;
+	margin: 0;
+}
+
+#subtitle {
+	text-align: center;
+	font-weight: 400;
+	font-size: 20px;
+	margin-bottom: 60px;
+}
+
 a {
 	color: white;
+	-webkit-transition: all 300ms ease;
+	transition: all 300ms ease;
+}
+
+a:hover {
+	color: #4CAF50;
 }
 
 #footer {
